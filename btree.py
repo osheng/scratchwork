@@ -1,3 +1,6 @@
+from math import ceil, log
+
+
 class Btree(object):
     """
     A bare bones implementation of a binary tree
@@ -39,4 +42,31 @@ class Btree(object):
         return (self.lnode is not None and self.lnode.contains(target)) or \
             (self.rnode is not None and self.rnode.contains(target))
 
-    # TODO write an insert method and array_to_tree
+    def is_balanced(self) -> bool:
+        """
+        Return whether the Btree is balanced
+        """
+        return 0 <= count_nodes(self.lnode) - count_nodes(self.rnode) <= 1
+
+    def is_compact(self) -> bool:
+        """
+        Return whether self is compact
+        """
+        return measure_depth(self) <= log(count_nodes(self) + 1, 2)
+
+
+def count_nodes(t: Btree) -> int:
+    """
+    Return the number of nodes in a Btree
+    """
+    if t is None:
+        return 0
+    return count_nodes(t.lnode) + count_nodes(t.rnode) + 1
+
+
+def measure_depth(t: Btree) -> int:
+    if t is None:
+        return 0
+    return 1 + max(measure_depth(t.lnode), measure_depth(t.rnode))
+
+# TODO write an insert method and array_to_tree
