@@ -24,6 +24,6 @@ void print_arr(int *arr, int length) {
   printf("%d]\n", arr[length - 1]);
 }
 
-void print_helper(char *file_name, int line){
+void print_helper(char *file_name, int line) {
   printf("I called a helper function in %s on line %d\n", file_name, line);
 }
