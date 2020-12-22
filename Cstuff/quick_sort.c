@@ -17,7 +17,7 @@ static int partition(int *arr, int low, int high) {
       high--;
     }
   }
-  //  print_helper(__FILE__, __LINE__)
+  // print_helper(__FILE__, __LINE__)
   return low;
 }
 
