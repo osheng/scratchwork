@@ -1,0 +1,16 @@
+This is the pre-commit I'm using for this repository
+
+#!/bin/bash
+cd Cstuff
+branch=$(git branch --show-current)
+echo $(git diff --cached --name-only)
+for file in $(git diff --cached --name-only)
+do
+  git diff --cached --exit-code --no-patch $branch -- $file
+  code=$?
+  if [[ $file =~ @(*.h|*.c) ]] && [[ $code -gt 0 ]]
+  then
+    clang-format -i $file
+  fi
+done
+cd -
