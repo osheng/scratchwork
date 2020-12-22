@@ -4,10 +4,10 @@
 
 #define TEST_SIZE 15
 int main(int argc, char const *argv[]) {
-  //setup array of 15 random numbers from 0 to 10, and display it
+  // setup array of 15 random numbers from 0 to 10, and display it
   srand(1);
   int *arr = malloc_or_exit(TEST_SIZE * sizeof(int), __FILE__, __LINE__);
-  for (int i = 0; i < TEST_SIZE; i++){
+  for (int i = 0; i < TEST_SIZE; i++) {
     arr[i] = rand() % 10;
   }
   print_arr(arr, TEST_SIZE);

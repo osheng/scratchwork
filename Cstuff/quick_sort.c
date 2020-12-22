@@ -4,7 +4,7 @@
 */
 static int partition(int *arr, int low, int high) {
   int pivot = arr[(low + high) / 2];
-   while (low <= high) {
+  while (low <= high) {
     while (arr[low] < pivot)
       low++;
     while (arr[high] > pivot)
