@@ -1,5 +1,6 @@
 #include "helper.h"
 #include "quick_sort.h"
+#include "radix_sort.h"
 #include <stdlib.h>
 
 #define TEST_SIZE 15
@@ -13,7 +14,8 @@ int main(int argc, char const *argv[]) {
   print_arr(arr, TEST_SIZE);
 
   // sort the array
-  quick_sort(arr, 0, TEST_SIZE - 1);
+  // quick_sort(arr, 0, TEST_SIZE - 1);
+  radix_sort(arr, TEST_SIZE);
   print_arr(arr, TEST_SIZE);
   free(arr);
 

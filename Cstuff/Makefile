@@ -5,7 +5,7 @@ all: test
 test: test_sort
 	./test_sort
 
-test_sort: test_sort.o quick_sort.o helper.o
+test_sort: test_sort.o radix_sort.o helper.o
 	gcc ${FLAGS} -o $@ $^
 
 %.o: %.c helper.h

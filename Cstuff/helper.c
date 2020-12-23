@@ -18,7 +18,7 @@ void *malloc_or_exit(size_t size, char *file_name, int line_number) {
 /*print an array to standard output*/
 void print_arr(int *arr, int length) {
   printf("[ ");
-  for (int i = 0; i < length - 2; i++) {
+  for (int i = 0; i < length  -1; i++) {
     printf("%d, ", arr[i]);
   }
   printf("%d]\n", arr[length - 1]);
