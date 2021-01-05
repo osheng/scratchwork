@@ -33,10 +33,13 @@ def count_components(vertices: List[Tuple[int, int]]) -> int:
             total += 1
         while len(q) > 0:
             current = q.pop(0)
-            for v in vertices:
-                if is_neighbor(v, current):
-                    q.append(v)
-            vertices = [x for x in vertices if x not in q]
+            i = 0
+            while i < len(vertices):
+                if is_neighbor(vertices[i], current):
+                    q.append(vertices[i])
+                    vertices.remove(vertices[i])
+                else:
+                    i += 1
 
     return total
 
@@ -49,5 +52,8 @@ def count_islands(nxn: List[List[Union[int, int]]]) -> int:
 if __name__ == '__main__':
     nxn = random_arr(4)
     print_map(nxn)
-
     print(count_islands(nxn))
+    seed(1)
+    print(f"count_islands(4x4) returns {count_islands(random_arr(4))} and it should return 3")
+    seed(1)
+    print(f"count_islands(6x6) returns {count_islands(random_arr(6))} and it should return 6")
