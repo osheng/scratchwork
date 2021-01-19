@@ -26,4 +26,4 @@ class ComplexNumber:
 
 if __name__ == '__main__':
     a = ComplexNumber(2, -3)
-    print(a ** 2.0)  # which should give you -5 - i12
+    print(a ** 2.0 + a)  # which should give you -3 - i15
